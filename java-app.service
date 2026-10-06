@@ -1,0 +1,18 @@
+[Unit]
+Description=Java Application Service (Spring Boot mo phong)
+After=network.target
+
+[Service]
+# Mo phong app Java bang mot tien trinh chay dai han.
+# Khi dung JAR that, thay bang: ExecStart=/usr/bin/java -jar /opt/app/app.jar
+ExecStart=/usr/bin/sleep 1000
+
+# Chay duoi tai khoan he thong gioi han (non-root)
+User=java-runner
+
+# Chinh sach tu dong restart khi tien trinh sap bat thuong
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
